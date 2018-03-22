@@ -14,7 +14,7 @@ HEADERS = {
 
 
 # 将复制到cookies 转换为字典，方便调用
-raw_cookies = 'ssl_upgrade=0; cna=PxQ6EyNF5wUCATy+5iNFFVsD; mobileSendTime=-1; credibleMobileSendTime=-1; ctuMobileSendTime=-1; riskMobileBankSendTime=-1; riskMobileAccoutSendTime=-1; riskMobileCreditSendTime=-1; riskCredibleMobileSendTime=-1; riskOriginalAccountMobileSendTime=-1; session.cookieNameId=ALIPAYJSESSIONID; LoginForm=alipay_login_auth; alipay="K1iSL1GNZc8p5+E55zEVVWGJWcW1dGzoQHYCjunzxw=="; CLUB_ALIPAY_COM=2088802403210581; iw.userid="K1iSL1GNZc8p5+E55zEVVQ=="; ali_apache_tracktmp="uid=2088802403210581"; spanner=v+0mcY3mFetK82Ra2mljNDtAVJvDQ+Wm4EJoL7C0n0A=; NEW_ALIPAY_TIP=1; ctoken=J3rBwOPtS_hHJjx7; zone=GZ00D; ALIPAYJSESSIONID=RZ25CRKiaA340iQBXDgDdWvOf5GmIzauthRZ12GZ00; rtk=ayhDqzbaCvwQbUAx5yKLlfjTs6bHxnv+z506rm8p1Zidxn42rjd'
+raw_cookies = ''
 cookie = SimpleCookie(raw_cookies)
 cookies = {i.key: i.value for i in cookie.values()}
 
