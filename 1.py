@@ -171,13 +171,13 @@ import socket
 
 # udp
 
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-for data in [b'Michael', b'Tracy', b'Sarah']:
-    # 发送数据:
-    s.sendto(data, ('127.0.0.1', 9999))
-    # 接收数据:
-    print(s.recv(1024).decode('utf-8'))
-s.close()
+#s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#for data in [b'Michael', b'Tracy', b'Sarah']:
+#    # 发送数据:
+#    s.sendto(data, ('127.0.0.1', 9999))
+#    # 接收数据:
+#    print(s.recv(1024).decode('utf-8'))
+#s.close()
 
 # buffer = []
 # while True:
@@ -194,3 +194,30 @@ s.close()
 # print(header.decode('utf-8'))
 # with open('sina.html','wb') as f:
 #     f.write(html)
+import json
+
+def conn_sqlite():
+    import sqlite3
+    conn = sqlite3.connect('LTS.db')
+    cursor = conn.cursor()
+    cursor.execute('select * from stockList')
+    values = cursor.fetchall()
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return values
+
+values = conn_sqlite()
+jsonData = []
+for row in values:
+	result = {} 
+	result['id'] = row[0]  
+	result['name'] = row[1]  
+	result['newPrice'] = row[2]
+	result['priceLimit'] = row[3]  
+	result['priceChange'] = row[4]  
+	result['fiveChange'] = row[5]
+	jsonData.append(result)
+
+json = json.dumps(jsonData)
+print (json)
